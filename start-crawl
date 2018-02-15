@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+# -u disabled output buffering
+python -u /spider/tourneau.py
