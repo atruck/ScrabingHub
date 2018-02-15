@@ -106,7 +106,7 @@ for p in product_pages:
 		# 	])
 
 		# write item
-		pipe.write('ITM {"url": "' + p + '", "brand": "' + str(brand.text).encode('utf8') + '", "name": "' + str(product_name).encode('utf8') + '"}\n')
+		pipe.write('ITM {"url": "' + p + '", "brand": "' + str(brand.text).encode('utf8') + '", "name": "' + str(product_name).encode('utf8') + '", "images": "' + str([str(i.get_attribute("src")).encode('utf8') for i in imgs if i.get_attribute("src") is not None]) + '", "price": "' + fromstring(price.get_attribute('outerHTML')).text_content().strip().encode('utf8') + '", "attributes": "' + str(attribute_map) + '"}\n')
 		pipe.flush()
 
 		print 'Crawled ' + str(product_name).encode('utf8')
