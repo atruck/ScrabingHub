@@ -1,9 +1,4 @@
-import urllib2
-import json
 import os
-# import csv
-import cStringIO
-from lxml.cssselect import CSSSelector
 from lxml.html import fromstring
 from selenium.common.exceptions import NoSuchElementException, TimeoutException
 from selenium import webdriver
@@ -17,15 +12,12 @@ pipe = open(path, 'w')
 # writer = csv.writer(open('tourneau.csv', 'wb'))
 browser = webdriver.PhantomJS()
 
-## Done ##
-# base_urls = ['http://www.tourneau.com/rolex/rolex-watches/submariner/',
-# 'http://www.tourneau.com/rolex/rolex-watches/datejust/',
-# 'http://www.tourneau.com/rolex/rolex-watches/datejust/?sz=18&start=18',
-# 'http://www.tourneau.com/rolex/rolex-watches/datejust/?sz=18&start=36',
-# 'http://www.tourneau.com/rolex/rolex-watches/datejust/?sz=18&start=54']
-
-## TODO ##
-base_urls = ['http://www.tourneau.com/rolex/rolex-watches/oyster-perpetual/',
+base_urls = ['http://www.tourneau.com/rolex/rolex-watches/submariner/',
+'http://www.tourneau.com/rolex/rolex-watches/datejust/',
+'http://www.tourneau.com/rolex/rolex-watches/datejust/?sz=18&start=18',
+'http://www.tourneau.com/rolex/rolex-watches/datejust/?sz=18&start=36',
+'http://www.tourneau.com/rolex/rolex-watches/datejust/?sz=18&start=54',
+'http://www.tourneau.com/rolex/rolex-watches/oyster-perpetual/',
 'http://www.tourneau.com/rolex/rolex-watches/pearlmaster/',
 'http://www.tourneau.com/rolex/rolex-watches/pearlmaster/?sz=18&start=18',
 'http://www.tourneau.com/rolex/rolex-watches/cosmograph-daytona/',
@@ -34,30 +26,22 @@ base_urls = ['http://www.tourneau.com/rolex/rolex-watches/oyster-perpetual/',
 'http://www.tourneau.com/rolex/rolex-watches/yacht-master/',
 'http://www.tourneau.com/rolex/rolex-watches/day-date/',
 'http://www.tourneau.com/rolex/rolex-watches/day-date/?sz=18&start=18',
-'http://www.tourneau.com/rolex/rolex-watches/sky-dweller/']
-
-## Done ##
-# base_urls = ['http://www.tourneau.com/rolex/rolex-watches/explorer/',
-# 'http://www.tourneau.com/rolex/rolex-watches/milgauss/',
-# 'http://www.tourneau.com/rolex/rolex-watches/air-king/',
-# 'http://www.tourneau.com/rolex/rolex-watches/cellini/']
-
-## TODO ##
-# base_urls = ['http://www.tourneau.com/watches/brands/tag-heuer/?sz=90',
-# 'http://www.tourneau.com/watches/brands/tag-heuer/?sz=90&start=90',
-# 'http://www.tourneau.com/watches/brands/tag-heuer/?sz=90&start=180']
-
-## TODO ##
-# base_urls = ['http://www.tourneau.com/watches/brands/omega/?sz=90',
-# 'http://www.tourneau.com/watches/brands/citizen/?sz=90',
-# 'http://www.tourneau.com/watches/brands/citizen/?sz=90&start=90',
-# 'http://www.tourneau.com/watches/brands/montblanc/?sz=90']
-
-## TODO ##
-# base_urls = ['http://www.tourneau.com/watches/brands/hamilton/?sz=90',
-# 'http://www.tourneau.com/watches/brands/hamilton/?sz=90&start=90',
-# 'http://www.tourneau.com/watches/brands/iwc/?sz=90',
-# 'http://www.tourneau.com/watches/brands/iwc/?sz=90&start=90']
+'http://www.tourneau.com/rolex/rolex-watches/sky-dweller/',
+'http://www.tourneau.com/rolex/rolex-watches/explorer/',
+'http://www.tourneau.com/rolex/rolex-watches/milgauss/',
+'http://www.tourneau.com/rolex/rolex-watches/air-king/',
+'http://www.tourneau.com/rolex/rolex-watches/cellini/',
+'http://www.tourneau.com/watches/brands/tag-heuer/?sz=90',
+'http://www.tourneau.com/watches/brands/tag-heuer/?sz=90&start=90',
+'http://www.tourneau.com/watches/brands/tag-heuer/?sz=90&start=180',
+'http://www.tourneau.com/watches/brands/omega/?sz=90',
+'http://www.tourneau.com/watches/brands/citizen/?sz=90',
+'http://www.tourneau.com/watches/brands/citizen/?sz=90&start=90',
+'http://www.tourneau.com/watches/brands/montblanc/?sz=90',
+'http://www.tourneau.com/watches/brands/hamilton/?sz=90',
+'http://www.tourneau.com/watches/brands/hamilton/?sz=90&start=90',
+'http://www.tourneau.com/watches/brands/iwc/?sz=90',
+'http://www.tourneau.com/watches/brands/iwc/?sz=90&start=90']
 
 product_sel = 'div.product-image > a'
 
